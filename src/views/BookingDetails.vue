@@ -1,22 +1,26 @@
 <template>
-  <div class="container mx-auto p-4">
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
-      <div class="p-4">
+  <div class="flex items-center justify-center min-h-screen">
+    <div class="bg-white shadow-lg rounded-lg max-w-md w-full overflow-hidden">
+      <div class="p-6">
         <button
           @click="goBack"
-          class="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          class="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors duration-150"
         >
           Go Back
         </button>
-        <h2 class="text-2xl font-semibold">Booking Details</h2>
-        <div v-if="booking">
-          <p class="text-gray-600"><strong>Customer Name:</strong> {{ booking.customerName }}</p>
-          <p class="text-gray-600"><strong>Start Date:</strong> {{ booking.startDate }}</p>
-          <p class="text-gray-600"><strong>End Date:</strong> {{ booking.endDate }}</p>
-          <p class="text-gray-600"><strong>Total Periode</strong> {{ booking.totalPeriod }}</p>
-          <p class="text-gray-600">
-            <strong>Return Station:</strong> {{ booking.pickupReturnStationId }}
-          </p>
+        <h2 class="text-2xl font-semibold text-center mb-4">Booking Details</h2>
+        <div v-if="loading" class="text-center py-4">
+          <p>Loading booking details...</p>
+        </div>
+        <div v-else-if="booking" class="text-gray-800">
+          <p class="mb-2"><strong>Customer Name:</strong> {{ booking.customerName }}</p>
+          <p class="mb-2"><strong>Start Date:</strong> {{ booking.startDate }}</p>
+          <p class="mb-2"><strong>End Date:</strong> {{ booking.endDate }}</p>
+          <p class="mb-2"><strong>Total Period:</strong> {{ booking.totalPeriod }}</p>
+          <p><strong>Return Station:</strong> {{ booking.pickupReturnStation }}</p>
+        </div>
+        <div v-else class="text-center py-4">
+          <p>Failed to load booking details. Please try again later.</p>
         </div>
       </div>
     </div>
@@ -24,54 +28,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
-export default {
-  name: 'BookingDetails',
-  data() {
-    return {
-      booking: null
-    }
-  },
-  methods: {
-    goBack() {
-      this.$router.go(-1)
-    },
-    fetchBookingDetails(stationId, bookingId) {
-      const url = `https://605c94c36d85de00170da8b4.mockapi.io/stations/${stationId}/bookings/${bookingId}`
-      axios
-        .get(url)
-        .then((response) => {
-          this.booking = response.data
-          this.booking.totalPeriod = this.getTotalPeriod(
-            new Date(this.booking.startDate),
-            new Date(this.booking.endDate)
-          )
-          this.booking.startDate = new Date(this.booking.startDate).toLocaleString()
-          this.booking.endDate = new Date(this.booking.endDate).toLocaleString()
-        })
-        .then(() => {
-          console.log('Booking details fetched:', this.booking)
-        })
-        .catch((error) => {
-          console.error('Error fetching booking details:', error)
-        })
-    },
-    getTotalPeriod(startDate, endDate) {
-      const totalMilliseconds = endDate - startDate
-      const totalDays = Math.floor(totalMilliseconds / (1000 * 60 * 60 * 24))
-      const totalHours = Math.floor((totalMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-
-      return `${totalDays} days and ${totalHours} hours`
-    }
-  },
-  mounted() {
-    const { stationId, bookingId } = this.$route.params
-    this.fetchBookingDetails(stationId, bookingId)
-  }
-}
+import BookingDetails from './BookingDetails'
+export default BookingDetails
 </script>
-
-<style>
-/* Add custom styles here */
-</style>

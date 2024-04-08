@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { CalendarView, CalendarViewHeader, CalendarMath } from 'vue-simple-calendar'
+import { fetchStations } from '@/service/stationService'
 
 export default {
   name: 'BookingView',
@@ -49,7 +49,7 @@ export default {
   },
   mounted() {
     // Fetch stations when the component is mounted
-    this.fetchStations()
+    this.initStations()
   },
 
   methods: {
@@ -79,17 +79,15 @@ export default {
       console.log('Changing calendar view to:', d)
     },
     // Fetch stations data from the API
-    async fetchStations() {
+    async initStations() {
       try {
-        const response = await axios.get('https://605c94c36d85de00170da8b4.mockapi.io/stations')
-        this.stations = response.data
-        this.stations = this.stations.filter((station) => station.name !== 'station-name{{i}}')
+        this.stations = await fetchStations()
         if (this.stations.length > 0) {
           this.selectedStation = this.stations[0].id
           this.getStationBookings()
         }
       } catch (error) {
-        console.error(error)
+        console.error('Error fetching stations:', error)
       }
     },
     // Fetch bookings for the selected station
