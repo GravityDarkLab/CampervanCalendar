@@ -16,13 +16,38 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+:root {
+  --color-background: #f7fcff;
+  --color-text: #333;
+  --color-border: #ccc;
+  --font-base: 'Roboto', sans-serif; /* Example using Roboto from Google Fonts */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-base);
+}
+
+#app {
+  font-family: Avenir, Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  min-width: 30rem;
+  max-width: 100rem;
+  min-height: 40rem;
+  margin: 0 auto;
+}
+
 header {
   line-height: 1.5;
-  max-height: 100vh;
   display: flex;
   justify-content: center;
   padding: 0.5rem 1rem;
-  place-content: center;
 }
 
 .wrapper {
@@ -39,27 +64,29 @@ nav {
   margin-top: 2rem;
 }
 
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  transition: color 0.3s ease;
+}
+
 nav a.router-link-exact-active {
   color: var(--color-text);
 }
 
-nav a.router-link-exact-active:hover {
+nav a:hover {
+  color: #007bff; /* Example hover color */
   background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+  text-decoration: none; /* Removes underline on hover */
 }
 
 nav a:first-of-type {
-  border: 0;
+  border-left: 0;
 }
 
 @media (min-width: 1024px) {
   header .wrapper {
-    justify-content: flex-start; /* Aligns content to the start of the wrapper */
+    justify-content: flex-start;
   }
 }
 </style>
