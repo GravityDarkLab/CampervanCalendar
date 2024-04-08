@@ -13,7 +13,10 @@
           <p class="text-gray-600"><strong>Customer Name:</strong> {{ booking.customerName }}</p>
           <p class="text-gray-600"><strong>Start Date:</strong> {{ booking.startDate }}</p>
           <p class="text-gray-600"><strong>End Date:</strong> {{ booking.endDate }}</p>
-          <p class="text-gray-600"><strong>Description:</strong> {{ booking.description }}</p>
+          <p class="text-gray-600"><strong>Total Periode</strong> {{ booking.totalPeriod }}</p>
+          <p class="text-gray-600">
+            <strong>Return Station:</strong> {{ booking.pickupReturnStationId }}
+          </p>
         </div>
       </div>
     </div>
@@ -40,12 +43,26 @@ export default {
         .get(url)
         .then((response) => {
           this.booking = response.data
+          this.booking.totalPeriod = this.getTotalPeriod(
+            new Date(this.booking.startDate),
+            new Date(this.booking.endDate)
+          )
           this.booking.startDate = new Date(this.booking.startDate).toLocaleString()
           this.booking.endDate = new Date(this.booking.endDate).toLocaleString()
+        })
+        .then(() => {
+          console.log('Booking details fetched:', this.booking)
         })
         .catch((error) => {
           console.error('Error fetching booking details:', error)
         })
+    },
+    getTotalPeriod(startDate, endDate) {
+      const totalMilliseconds = endDate - startDate
+      const totalDays = Math.floor(totalMilliseconds / (1000 * 60 * 60 * 24))
+      const totalHours = Math.floor((totalMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+
+      return `${totalDays} days and ${totalHours} hours`
     }
   },
   mounted() {
