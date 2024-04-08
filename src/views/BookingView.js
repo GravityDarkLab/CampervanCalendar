@@ -34,7 +34,8 @@ export default {
         previousYearLabel: '\uE5CB\uE5CB',
         previousPeriodLabel: '\uE5CB',
         nextPeriodLabel: '\uE5CC',
-        nextYearLabel: '\uE5CC\uE5CC'
+        nextYearLabel: '\uE5CC\uE5CC',
+        currentPeriodLabel: 'Today'
       }
     },
     // Locale for the calendar
