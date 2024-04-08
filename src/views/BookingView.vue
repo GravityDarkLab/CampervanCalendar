@@ -129,6 +129,7 @@ export default {
       try {
         const response = await axios.get('https://605c94c36d85de00170da8b4.mockapi.io/stations')
         this.stations = response.data
+        this.stations = this.stations.filter((station) => station.name !== 'station-name{{i}}')
         if (this.stations.length > 0) {
           this.selectedStation = this.stations[0].id
           this.getStationBookings()
