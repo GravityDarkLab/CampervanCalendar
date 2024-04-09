@@ -7,25 +7,39 @@ export default {
     CalendarView,
     CalendarViewHeader
   },
+  /**
+   * Component's data properties
+   * @returns {Object} The data object
+   */
   data() {
     return {
-      useDefaultTheme: true, // Flag to toggle theme
-      stations: [], // List of stations fetched from API
-      selectedStation: null, // Currently selected station
-      selectedBooking: {}, // Details of the selected booking
+      useDefaultTheme: true,
+      stations: [],
+      selectedStation: null,
+      selectedBooking: {},
       showDate: this.specificMonth(2021, 5, 1), // Initial date to show in calendar
-      displayPeriodUom: 'week', // Unit of measurement for display period
-      items: [] // Bookings to display in calendar
+      displayPeriodUom: 'week',
+      items: [] // Holds the bookings for the selected station
     }
   },
+  /**
+   * Component's computed properties
+   * @returns {Object} The computed properties object
+   */
   computed: {
-    // Computed property to set the theme classes dynamically
+    /**
+     * Theme classes for the calendar
+     * @returns {Object} The theme classes object
+     */
     themeClasses() {
       return {
         'theme-gcal': this.useDefaultTheme
       }
     },
-    // Theme options for calendar customization
+    /**
+     * Theme options for the calendar
+     * @returns {Object} The theme options object
+     */
     themeOptions() {
       return {
         top: '2.8em',
@@ -38,11 +52,17 @@ export default {
         currentPeriodLabel: 'Today'
       }
     },
-    // Locale for the calendar
+    /**
+     * The user's locale
+     * @returns {string} The user's locale
+     */
     userLocale() {
       return CalendarMath.getDefaultBrowserLocale()
     },
-    // Day names formatted according to the user locale
+    /**
+     * The formatted weekday names
+     * @returns {Array} The formatted weekday names
+     */
     dayNames() {
       return CalendarMath.getFormattedWeekdayNames(this.userLocale, 'long', 0)
     }
