@@ -1,8 +1,8 @@
-import { CalendarView, CalendarViewHeader, CalendarMath } from 'vue-simple-calendar'
+import { CalendarView, CalendarViewHeader } from 'vue-simple-calendar'
 import { fetchStations } from '@/service/stationService'
 
 export default {
-  name: 'BookingView',
+  name: 'BookingViewScript',
   components: {
     CalendarView,
     CalendarViewHeader
@@ -51,20 +51,6 @@ export default {
         nextYearLabel: '\uE5CC\uE5CC',
         currentPeriodLabel: 'Today'
       }
-    },
-    /**
-     * The user's locale
-     * @returns {string} The user's locale
-     */
-    userLocale() {
-      return CalendarMath.getDefaultBrowserLocale()
-    },
-    /**
-     * The formatted weekday names
-     * @returns {Array} The formatted weekday names
-     */
-    dayNames() {
-      return CalendarMath.getFormattedWeekdayNames(this.userLocale, 'long', 0)
     }
   },
   mounted() {

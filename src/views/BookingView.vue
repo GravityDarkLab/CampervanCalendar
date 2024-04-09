@@ -58,8 +58,8 @@
 </template>
 
 <script>
-import BookingView from './BookingView'
-export default BookingView
+import BookingViewScript from './BookingViewScript'
+export default BookingViewScript
 </script>
 
 <style>
