@@ -28,6 +28,6 @@
 </template>
 
 <script>
-import BookingDetails from './BookingDetails'
-export default BookingDetails
+import BookingDetailsScript from './BookingDetailsScript'
+export default BookingDetailsScript
 </script>
