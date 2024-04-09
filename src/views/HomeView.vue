@@ -20,11 +20,11 @@
     <div class="animate-fade-in-up flex space-x-4">
       <a href="https://www.linkedin.com/in/ashraf-labidi-0xff3e/" target="_blank">
         <!-- LinkedIn Icon SVG -->
-        <img src="../../linkedin.svg" alt="LinkedIn Icon" class="h-8 w-8 text-blue-700" />
+        <img src="../../public/linkedin.svg" alt="LinkedIn Icon" class="h-8 w-8 text-blue-700" />
       </a>
       <a href="https://github.com/GravityDarkLab" target="_blank">
         <!-- GitHub Icon SVG -->
-        <img src="../../github.svg" alt="GitHub Icon" class="h-8 w-8 text-gray-800" />
+        <img src="../../public/github.svg" alt="GitHub Icon" class="h-8 w-8 text-gray-800" />
       </a>
     </div>
   </div>
