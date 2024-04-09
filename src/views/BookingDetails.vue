@@ -4,10 +4,12 @@
       <div class="p-6">
         <button
           @click="goBack"
-          class="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 transition-colors duration-150"
+          class="mb-4 px-2 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors duration-150 flex items-center justify-center shadow-md"
+          style="width: 24px; height: 24px"
         >
-          Go Back
+          <i class="material-icons" style="font-size: 20px">arrow_back</i>
         </button>
+
         <h2 class="text-2xl font-semibold text-center mb-4">Booking Details</h2>
         <div v-if="loading" class="text-center py-4">
           <p>Loading booking details...</p>
