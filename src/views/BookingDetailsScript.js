@@ -1,7 +1,7 @@
 import { fetchBookingDetails, fetchStations } from '@/service/stationService'
 
 export default {
-  name: 'BookingDetailsScript',
+  name: 'BookingDetails',
   /**
    * Component's data properties
    * @returns {Object} The data object

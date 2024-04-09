@@ -2,7 +2,7 @@ import { CalendarView, CalendarViewHeader } from 'vue-simple-calendar'
 import { fetchStations } from '@/service/stationService'
 
 export default {
-  name: 'BookingViewScript',
+  name: 'BookingView',
   components: {
     CalendarView,
     CalendarViewHeader
