@@ -3,7 +3,6 @@
 @import '../../node_modules/vue-simple-calendar/dist/style.css';
 @import './calendarHeader.css';
 
-/* The following styles are for the calendar itself */
 #calendar {
   font-family:
     system-ui,
@@ -18,29 +17,26 @@
     'Helvetica Neue',
     sans-serif;
   display: flex;
-  flex-direction: column;
-  width: 85vw;
-  min-height: 80vh;
-  max-height: calc(100vh - 5rem); /* Adjust for header height */
-  min-width: 30rem;
-  max-width: 90rem;
+  flex-direction: row;
+  width: 80vw;
+  max-width: 95vw;
+  min-height: 100vh;
   margin: 0 auto;
   scroll-behavior: smooth;
+  background: #f0f2f5; /* Light background for the entire calendar */
+  padding: 0.1rem; /* Padding around the calendar */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05); /* Reduced shadow */
+  border-radius: 8px; /* Rounded corners */
 }
 
-/* The following styles are for the calendar parent container */
 #calendar .calendar-parent {
   display: flex;
-  flex-direction: column;
   flex-grow: 1;
-  overflow-y: auto;
-  border-radius: 6px;
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
-  min-height: 70vh;
-  max-height: 80vh;
+  border-radius: 8px; /* Consistent with calendar border-radius */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.03); /* Reduced shadow */
   background-color: #ffffff;
-  color: black;
-  font-size: medium;
+  color: #333; /* Darker color for better readability */
+  font-size: 1rem; /* Standard font size */
 }
 
 /*
@@ -84,6 +80,7 @@
   background-color: #ffe6fc;
 }
 
+/* The following styles are for the event (item) element */
 #calendar .cv-item {
   border-radius: 6px;
   transition:
