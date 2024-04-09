@@ -1,5 +1,9 @@
 # CampervanCalendar
 
+[![Node.js CI](https://github.com/GravityDarkLab/CampervanCalendar/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/GravityDarkLab/CampervanCalendar/actions/workflows/node.js.yml)
+
+> __Note:__ Check the Actions tab for the latest build status and test coverage summary.
+
 > __Note:__ This project uses a mock API to simulate fetching data.
 
 This project is a simple calendar application that was created as part of a coding challenge. It is built with Vue 3, Vite, and Tailwind CSS.
