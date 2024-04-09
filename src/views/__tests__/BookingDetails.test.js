@@ -41,8 +41,16 @@ describe('BookingDetailsView', () => {
 
   describe('initial loading state', () => {
     it('shows loading indicator when fetching data', async () => {
-      fetchStations.mockResolvedValue([])
-      fetchBookingDetails.mockResolvedValue({})
+      fetchStations.mockResolvedValue([
+        { id: '1', name: 'Station 1' },
+        { id: '2', name: 'Station 2' }
+      ])
+      fetchBookingDetails.mockResolvedValue({
+        customerName: 'Max Mustermann',
+        startDate: '2020-01-01',
+        endDate: '2020-01-05',
+        pickupReturnStationId: '1'
+      })
 
       const wrapper = createWrapper({ loading: true })
 
