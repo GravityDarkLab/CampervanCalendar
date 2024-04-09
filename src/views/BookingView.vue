@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex justify-center items-center m-5 space-x-4">
+    <div class="flex justify-center items-center p-4 bg-gray-50" id="options">
       <div class="relative">
         <select
           v-model="selectedStation"
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div id="calendar">
+  <div id="calendar" class="bg-gray-50">
     <div class="calendar-parent">
       <calendar-view
         :display-period-count="1"
@@ -38,6 +38,7 @@
         :starting-day-of-week="1"
         :class="themeClasses"
         @click-item="onClickItem"
+        id="calendar-parent"
       >
         <template #header="{ headerProps }">
           <calendar-view-header
@@ -48,6 +49,7 @@
             :next-period-label="themeOptions.nextPeriodLabel"
             :next-year-label="themeOptions.nextYearLabel"
             class="header-modern"
+            id="calendar-header"
           />
         </template>
       </calendar-view>
