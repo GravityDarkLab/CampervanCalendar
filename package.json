@@ -10,6 +10,7 @@
     "deploy": "gh-pages -d dist",
     "preview": "vite preview",
     "test:unit": "vitest",
+    "test:coverage": "npx vitest --coverage.enabled true",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/"
   },
