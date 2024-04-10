@@ -32,6 +32,7 @@ A live version of the app can be found [here](https://gravitydarklab.github.io/C
 - [Node.js](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
 - [Vue 3](https://v3.vuejs.org/)
+- [Vitest](https://vitest.dev/)
 
 ### Recommended IDE Setup
 
@@ -58,6 +59,18 @@ A live version of the app can be found [here](https://gravitydarklab.github.io/C
     ```
 
 4. The App should now be running.
+
+### Runnnig the Tests
+
+```sh
+npm run test:unit
+```
+
+### Running Test Coverage
+
+```sh
+npm run test:coverage
+```
 
 ### Other Scripts
 
