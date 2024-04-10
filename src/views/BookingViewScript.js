@@ -17,7 +17,7 @@ export default {
       stations: [],
       selectedStation: null,
       selectedBooking: {},
-      showDate: this.specificMonth(2021, 5, 1), // Initial date to show in calendar
+      showDate: this.specificMonth(2020, 8, 1), // Initial date to show in calendar: 1st August 2020
       displayPeriodUom: 'week',
       items: [] // Holds the bookings for the selected station
     }
@@ -66,7 +66,8 @@ export default {
     },
     // Returns a Date object representing a specific month, day, and time
     specificMonth(y, m, d, h, min) {
-      return new Date(y, m, d, h || 0, min || 0)
+      // Month in JavaScript is 0-based, so I subtract 1 from the month
+      return new Date(y, m - 1, d, h || 0, min || 0)
     },
     // Event handler for clicking an item on the calendar
     onClickItem(e) {
