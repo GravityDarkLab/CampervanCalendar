@@ -33,9 +33,9 @@ nav a.router-link-exact-active {
 }
 
 nav a:hover {
-  color: #007bff; /* Example hover color */
+  color: #007bff;
   background-color: transparent;
-  text-decoration: none; /* Removes underline on hover */
+  text-decoration: none;
 }
 
 nav a:first-of-type {
