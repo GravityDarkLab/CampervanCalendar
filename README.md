@@ -9,6 +9,7 @@
 This project is a simple calendar application that was created as part of a coding challenge. It is built with Vue 3, Vite, and Tailwind CSS.
 
 A live version of the app can be found [here](https://gravitydarklab.github.io/CampervanCalendar/).
+This project make usage of the open source [vue-simple-calendar](https://github.com/richardtallent/vue-simple-calendar) for the calendar component.
 
 ## Tech Stack
 
